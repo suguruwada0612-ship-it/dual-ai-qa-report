@@ -1,6 +1,8 @@
 # Dual-AI QA 技術実証レポート
 
-こむぎパソコン教室（岩手県北上市）が、KOMUGI Classroom DXの開発・独立QA・修正・再監査・人間による確認を公開向けに整理した技術紹介用リポジトリです。
+こむぎパソコン教室（岩手県北上市）の講師が、AIで開発したKOMUGI Classroom DXを実機で試し、自動テストがPASSした後にも残った問題を教育品質として不合格と判断。その指摘が設計変更、修正、Mistral・Gemma比較、独立ブラインドQAへつながった実証記録です。
+
+**現場専門家による要件定義・Human Gate × Codexによる開発 × Claude Codeによる独立QA**を中心に、成果と残課題を公開します。[Issue #1〜#8の公開用経緯](evidence/human-gate-chronology.md)では、一次資料を直接照合し、依頼と実施結果を分けています。
 
 - [技術実証レポート](https://suguruwada0612-ship-it.github.io/dual-ai-qa-report/)
 - [報道向けプレスリリース](https://suguruwada0612-ship-it.github.io/dual-ai-qa-report/press.html)
@@ -12,7 +14,7 @@
 
 主要自動テスト37回分・延べ2,970件、最新200ケース。独立QAは既存レポートの40起動・38結果取得・2未取得に、今回の資料照合で過去3回を追加し、少なくとも43起動・41取得・2未取得。Human Gate起点の修正10対応、実Cloudflare通信は下限170回です。各数値は単位が違うため合算しません。
 
-最新のコード監査はHigh 0・Medium 0・Low 3、範囲外持ち越し3件。修正後の実AI応答品質は未検証で、Gemmaの正式採用・授業利用のHuman Gateは保留です。
+最新のコード監査はHigh 0・Medium 0・Low 3、範囲外持ち越し3件でコードQA合格。修正後の実AI通信は0回、応答品質は再検証待ちです。通常モデルはMistralのまま、Gemmaは正式採用しておらず、授業利用のHuman Gateも保留です。
 
 ## ファイル
 

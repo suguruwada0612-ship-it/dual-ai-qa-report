@@ -5,7 +5,48 @@
 <h2 id="scope">この資料の読み方</h2>
 <p>集計基準日は2026年11月22日（JST）。開発資料の参照コミットは <code>47d820885f6f5fd28a225fbf8829a231550d2044</code> です。このページは、原資料から公開に必要な数値・条件・短い抜粋を抽出し、再構成したものです。非公開リポジトリへアクセスできない読者にも、集計行と判断の根拠を示します。</p>
 <p>今回行ったのは既存記録の照合・集計の再計算・公開サイトの検証です。製品の全200ケースや実AI試験を再実行していません。今回のCodexによる資料レビューを、過去のClaude Codeの独立QA回数に追加していません。</p>
-<h2 id="correction">集計補正：過去の監査3回を追加確認</h2>
+<h2 id="human-gate">Human Gateが動かした設計変更とモデル比較</h2>
+<p>講師による実機操作と教育上の不合格判断が、最大10成功回答の学習フロー、講師・生徒の独立利用、自由入力型チャット、実モデルの品質評価へとつながりました。Issue #1〜#8本文とIssue #6の追加比較承認コメントを今回直接確認し、依頼と実施結果を分けて照合しています。</p>
+<p><a href="evidence/human-gate-chronology.md">経緯資料のMarkdown原稿</a>には、各Issueの観察・判断・対応、参照資料とコミット、取得時の更新日時を掲載しています。以下の要約はその全文です。非公開リポジトリを開かずに読めます。</p>
+<div class="chronology"><h3>確認方法と公開範囲</h3>
+<p>2026年11月22日（JST）に、原開発リポジトリのIssue #1〜#8本文とIssue #6の追加比較承認コメントを直接読み、STATUSと実施報告を照合しました。Issueの依頼内容だけで実施済みとは扱わず、結果は参照コミット <code>47d820885f6f5fd28a225fbf8829a231550d2044</code> の資料に基づきます。IssueはGitコミットに固定されないため、末尾に取得時の更新日時を併記します。</p>
+<p>以下は公開に必要な観察・判断・対応を要約した資料です。原ログ、画面写真、会話全文、受講者情報を転記していません。既存記録を今回直接照合したもので、製品の新しい試験や実AI通信を行ったものではありません。</p>
+<h3>講師の実機操作が起点となったIssue #1〜#5</h3>
+<h4>Issue #1：短い対話では、追加・修正・確認を学びにくい</h4>
+<p>講師は実機操作で「今日の目標」の対話が2回で終わり、別のAI練習も最大3成功回答・5分では学習しにくいと判断。目標決定とAIを使う練習を分け、AI練習をタイピング前に置くこと、最大10成功回答、全体の5分制限撤廃を要求しました。失敗送信を成功回数に含めない条件も明記されています。</p>
+<p>STATUSは新しい順序・回数・再送処理の実装、144テストPASS、独立QA3回の最終H0/M0/L10を記録しています。この段階の実APIは未検証です。出典：Issue #1、<code>STATUS.md</code>「2026-11-22 Issue #1」、<code>docs/AUDIT_20261122_ISSUE1.md</code>。修正後コミット：<code>d3b532a</code>。</p>
+<h4>Issue #2：講師と生徒を行き来すると、授業が止まる</h4>
+<p>講師は、画面を切り替える際のログインし直しや、起動操作による相手側のログアウトを問題にしました。画面のURLは元から別ですが、認証Cookieの共用と起動時の再起動が独立利用を妨げていました。</p>
+<p>役割別のセッション・ログアウト、同じ学習記録の共有、正しい稼働サーバーの再利用へ改修。独立QAの初回Medium 3件も修正し、152テストPASS、最終差分監査H0/M0/L4を記録しています。次のIssue #3では、講師が画面分離の動作を確認したうえで別の問題を報告しています。出典：Issue #2・#3、<code>docs/AUDIT_20261122_ISSUE2.md</code>、STATUS。修正後：<code>bb4bcbc</code>。</p>
+<h4>Issue #3：AI練習に入れず、何を直すべきか分からない</h4>
+<p>講師の実機では「AIまたは題材が利用できない」という表示で先へ進み、入力や題材選択を試せずHuman Gate不合格となりました。調査では少なくとも有効な承認題材が0件という不足を確認。以前から起動していた別プロセスの接続状態までは断定していません。</p>
+<p>接続設定と題材不足を分ける診断、講師による明示的な接続確認・題材有効化を整備しました。164テストPASS、再監査H0/M0/L8、隔離した架空題材で実AI10回答の成功を記録しています。通信成功は授業品質の合格とは別です。出典：Issue #3、<code>docs/AUDIT_20261122_ISSUE3.md</code>、STATUS。修正後：<code>d7743bd</code>。</p>
+<h4>Issue #4：必須選択が会話を妨げる</h4>
+<p>講師は毎回の「返し方」選択、終了時の必須2選択、長文とスクロールの負担、未指定の日時等をAIが補う問題を発見。自由入力だけで続けられるチャットと、1ボタン終了を求めました。APIへの10回の通信成功だけでは会話の使いやすさの合格にならないという判断です。</p>
+<p>自由入力型UI、入力欄の配置、未指定条件を補わない指示などへ改修。170テストPASS、独立QAの最終H0/M0/L10を記録しています。模擬AIでのブラウザ操作と実通信の結果は別々に確認されていますが、全入力に対する回答品質は未確認でした。出典：Issue #4、<code>docs/AUDIT_20261122_ISSUE4.md</code>、STATUS。修正後：<code>a93e4f2</code>。</p>
+<h4>Issue #5：正しく指示した初心者が、自分を疑いかねない</h4>
+<p>講師はIssue #4の修正版をChromeで試し、明確な依頼にAIが質問を繰り返す場面を発見しました。短い抜粋は次のとおりです。</p>
+<blockquote class="quote"><p>講師の依頼：「120文字で提案してください。」<br>AIの応答：「文章の長さは120文字程度にしますか？」</p></blockquote>
+<p>Issueには、求めた本文が出ない、同じ指示を送っても前置きや確認が重なる、という観察があります。講師は、正しく指示した初心者が自分の指示を疑うおそれを挙げ、教育品質として不合格と判定しました。通信成功や自動テストPASSだけで応答品質の合格としない条件が明記されています。</p>
+<p>Codexは会話履歴のuser/assistant役割分離、指示の優先順位、失敗時の再送等を修正。最終のMistral評価は架空の4会話・40回答で、明確な文章依頼12回すべてに本文を返しました。ただし120字の目安108〜132字への適合は2/12で、同文反復、短縮・別案、仮案を確定事項のように扱う問題が残りました。初期の講師の観察と、この修正後の結果を同一視しません。実応答品質の独立評価にはH2/M2が残り、Human Gate未合格です。</p>
+<p>講師が承認したのはGemmaの比較試験で、正式採用ではありません。初期比較の設定調整後は20成功回答＋1タイムアウトで、文字数適合5/6。未指定の約束などは残りました。出典：Issue #5、<code>docs/AI_QUALITY_20261122_ISSUE5.md</code>、STATUS。Issue #5修正記録：<code>6e7b2dd</code>。</p>
+<h3>不合格から、候補の比較・独立評価・再修正へ</h3>
+<h4>Issue #6：通常モデルを維持し、候補を隔離して試す</h4>
+<p>Gemmaの比較条件を明示して再検証できる構成へ改修しました。通常のMistralは生成上限256、候補Gemmaは推論無効・completion上限512という違いがあります。193テストPASS、コードQA H0/M0/L7。この実装段階では追加実通信0回でした。</p>
+<p>その後、Issue #6のコメントで別枠20通信が承認され、町内会と家族の架空題材で19成功・1タイムアウト、文字数適合4/5を記録。再送も20回の内数です。これはCodexによる実応答観察で、次のIssue #7のClaudeブラインドQAとは別の試験群です。出典：Issue #6本文・追加比較承認コメント、<code>docs/AUDIT_20261122_ISSUE6.md</code>、<code>docs/GEMMA_LIVE_20_20261122.md</code>。比較準備：<code>91f5831</code>、追加試験記録：<code>0fd4ed3</code>。</p>
+<h4>Issue #7：候補Gemmaも、モデル名を伏せて確かめる</h4>
+<p>新たな別枠20通信で18成功・2タイムアウト。再送2回は20回に含み、いずれも成功しました。120文字指定5回は108〜132字に収まりましたが、厳密に120文字は0/5でした。</p>
+<p>Codexの評価を先に固定し、全20試行の結果を凍結した後、Claude Codeへモデル名・過去の報告・Codexの評価・採用判断を伏せて提示しました。評価対象はアプリ処理後の保存応答で、未加工のモデル出力ではありません。</p>
+<p>Claudeの実応答・運用品質評価はH0/M3/L6。Mediumは、完成文として使える別案の不足、本人が指定していない将来の約束、応答待ちの負担です。正式採用は保留となりました。出典：Issue #7、<code>docs/GEMMA_DUAL_AI_QA_20261122.md</code>、STATUS。記録：<code>520b872</code>。</p>
+<h4>Issue #8：指摘をコードへ反映し、実応答の合格は保留する</h4>
+<p>Issue #7のMedium 3件を受け、完成した別案を求める指示、事実と仮案の区別、失敗後の元文再送、待機中の終了操作を修正しました。独立コードQAの初回M2も修正し、最終H0/M0/L3、範囲外持ち越し3件でコードQA合格。全200ケースがPASSしました。</p>
+<p><strong>追加実AI通信は0回。コードQAの合格から、実応答品質のMedium 3件が解消したとは判断できません。通常モデルはMistralのまま、Gemmaは正式採用しておらず、修正後の実LLM品質と授業利用は再検証待ちです。</strong> 出典：Issue #8、<code>docs/AUDIT_20261122_ISSUE8.md</code>、STATUS。修正後：<code>47d8208</code>。</p>
+<h3>数え方と出典識別</h3>
+<p>Human Gateの10対応という既存集計は、明示された過去5対応とIssue #1〜#5を数えたものです。Issue #6〜#8は、発見後の比較・独立評価・再修正の経緯として載せており、新しい講師発見件数として3件を足していません。Issue数、欠陥数、合格数は一致しません。</p>
+<p>文字数の適合2/12・5/6・4/5・5/5は異なる試験群です。生成条件・会話内容・履歴が違い、合算してモデルの優劣や改善率を示しません。既存の累計数値は今回のIssue本文照合によって変更していません。</p>
+<p>原資料は開発用の非公開リポジトリにあるため、ここでは読者が経緯を追えるよう要約を公開しました。原Issueの取得時更新日時（UTC）は以下です。すべて日本時間では2026年11月22日です。Issue本文の依頼と、後続の実施結果を上記で対応させています。</p>
+<div class="table-scroll" role="region" aria-label="原Issue・集計と説明" tabindex="0"><table><caption>原Issue・集計と説明</caption><thead><tr><th scope="col">原Issue</th><th scope="col">取得時のupdated_at（UTC）</th><th scope="col">公開要約の主題</th></tr></thead><tbody><tr><td>#1</td><td>2026-11-21 23:42:22</td><td>学習フローと最大10成功回答</td></tr><tr><td>#2</td><td>2026-11-22 01:45:19</td><td>講師・生徒の独立利用</td></tr><tr><td>#3</td><td>2026-11-22 03:25:28</td><td>利用不可の切り分け</td></tr><tr><td>#4</td><td>2026-11-22 04:15:22</td><td>自由入力型チャット</td></tr><tr><td>#5</td><td>2026-11-22 07:46:36</td><td>指示追従への不合格判断</td></tr><tr><td>#6</td><td>2026-11-22 08:55:09</td><td>Gemmaの比較準備と追加試験</td></tr><tr><td>#7</td><td>2026-11-22 09:14:43</td><td>独立ブラインド品質QA</td></tr><tr><td>#8</td><td>2026-11-22 09:25:36</td><td>再修正と品質再検証待ち</td></tr></tbody></table></div>
+<p><a href="index.html#human-gate">技術実証レポート</a>／<a href="evidence.html#human-gate">公開根拠資料</a></p></div><h2 id="correction">集計補正：過去の監査3回を追加確認</h2>
 <p>既存累計レポートは、独立QAを40回起動・38回結果取得・2回未取得としていました。今回の照合では、初期タイピングの監査2回と、初期Medium修正の途中監査1回を別の実行として確認しました。公開集計は<strong>少なくとも43回起動・41回結果取得・2回未取得</strong>です。</p>
 <p>これは新たに監査を実行した差ではありません。元レポートの集計対象から漏れていた過去の記録を足したものです。全期間の未記録実行を網羅したとは主張しません。限定メタデータの照合手順とハッシュは<a href="evidence/audit-count-correction.md">補正の根拠原稿</a>で確認できます。</p>
 <details><summary>補正の詳細・監査抜粋・原本ハッシュを読む</summary><p>発信：こむぎパソコン教室／確認日：2026年11月22日（日本時間）</p>
@@ -57,7 +98,7 @@
 <h2 id="limits">最新時点の残課題</h2>
 <div class="table-scroll" role="region" aria-label="分類・集計と説明" tabindex="0"><table><caption>分類・集計と説明</caption><thead><tr><th scope="col">分類</th><th scope="col">確認・未確認の内容</th></tr></thead><tbody><tr><td>コードQAのLow 3件</td><td>長文を既存上限で切る場合の自然な文末、競合する指示の解釈、専用固定テストの網羅不足</td></tr><tr><td>範囲外の持ち越し3件</td><td>失敗を含む受講総試行上限なし、期限切れ時のAI未送信本文の復元なし、モデル名接頭辞の大文字扱いの不一致</td></tr><tr><td>実AI品質</td><td>Issue #8後の回答品質再測定なし。Issue #7のMedium 3件を解消済みとしない</td></tr><tr><td>実利用</td><td>実受講生の理解・自然さ、待機・再送の実ブラウザ体験、業務時間削減・教育効果の定量測定が未完了</td></tr><tr><td>試験条件</td><td>Issue #7の題材外・個人情報・Office操作の攻撃的入力、負荷条件、長期障害率は未確認</td></tr><tr><td>モデル・製品公開</td><td>通常Mistral設定を維持。Gemma正式採用・製品mainへのマージ・製品デプロイは基準時点で未実施</td></tr></tbody></table></div>
 <h2 id="sources">出典と公開範囲</h2>
-<div class="table-scroll" role="region" aria-label="出典・集計と説明" tabindex="0"><table><caption>出典・集計と説明</caption><thead><tr><th scope="col">出典</th><th scope="col">掲載値・説明への用途</th></tr></thead><tbody><tr><td>最新累計QAレポート（2026-11-22、Issue #8反映版）</td><td>37回分・2,970件、200ケース、旧QA40/38/2、Human Gate10、実通信下限170の出発点</td></tr><tr><td><code>STATUS.md</code>（参照コミット固定）</td><td>各主要実行結果、Human Gate対応、独立監査の時系列</td></tr><tr><td><code>docs/AUDIT_20261117_AI_PRACTICE.md</code>、<code>docs/AUDIT_20261117_STUDENT_AUTH.md</code></td><td>独立QA結果未取得の内訳</td></tr><tr><td><code>docs/AUDIT_20261118_TYPING_FLOW.md</code>、Issue #1〜#6・#8監査資料</td><td>修正内容、監査回数、テスト結果、残課題</td></tr><tr><td><code>docs/AI_QUALITY_20261122_ISSUE5.md</code></td><td>コード監査と実応答品質の区別、実通信の試験群</td></tr><tr><td><code>docs/GEMMA_LIVE_20_20261122.md</code>、<code>docs/GEMMA_DUAL_AI_QA_20261122.md</code></td><td>各20通信の条件・観測結果・ブラインド評価</td></tr><tr><td>初期修正監査のローカル結果メタデータ</td><td>今回追加確認した途中監査1回。公開は成否・指摘数・ハッシュ等の必要最小限</td></tr><tr><td><code>docs/PROJECT_CONCEPT_20261114.md</code>、仕様原典・決定記録</td><td>背景、目的、人間による採用判断</td></tr><tr><td><a href="https://komugi-pc-school.tank.jp/">こむぎパソコン教室公式サイト</a></td><td>北上市の所在地、事業内容、公開の電話・メール窓口。2026-11-22確認</td></tr></tbody></table></div>
+<div class="table-scroll" role="region" aria-label="出典・集計と説明" tabindex="0"><table><caption>出典・集計と説明</caption><thead><tr><th scope="col">出典</th><th scope="col">掲載値・説明への用途</th></tr></thead><tbody><tr><td>最新累計QAレポート（2026-11-22、Issue #8反映版）</td><td>37回分・2,970件、200ケース、旧QA40/38/2、Human Gate10、実通信下限170の出発点</td></tr><tr><td><code>STATUS.md</code>（参照コミット固定）</td><td>各主要実行結果、Human Gate対応、独立監査の時系列</td></tr><tr><td>原開発リポジトリのIssue #1〜#8本文、Issue #6の追加比較承認コメント</td><td>2026-11-22直接確認。講師の実機操作、不合格判断、要求した設計変更と比較試験の経緯。公開用要約を本ページに掲載</td></tr><tr><td><code>docs/AUDIT_20261117_AI_PRACTICE.md</code>、<code>docs/AUDIT_20261117_STUDENT_AUTH.md</code></td><td>独立QA結果未取得の内訳</td></tr><tr><td><code>docs/AUDIT_20261118_TYPING_FLOW.md</code>、Issue #1〜#6・#8監査資料</td><td>修正内容、監査回数、テスト結果、残課題</td></tr><tr><td><code>docs/AI_QUALITY_20261122_ISSUE5.md</code></td><td>コード監査と実応答品質の区別、実通信の試験群</td></tr><tr><td><code>docs/GEMMA_LIVE_20_20261122.md</code>、<code>docs/GEMMA_DUAL_AI_QA_20261122.md</code></td><td>各20通信の条件・観測結果・ブラインド評価</td></tr><tr><td>初期修正監査のローカル結果メタデータ</td><td>今回追加確認した途中監査1回。公開は成否・指摘数・ハッシュ等の必要最小限</td></tr><tr><td><code>docs/PROJECT_CONCEPT_20261114.md</code>、仕様原典・決定記録</td><td>背景、目的、人間による採用判断</td></tr><tr><td><a href="https://komugi-pc-school.tank.jp/">こむぎパソコン教室公式サイト</a></td><td>北上市の所在地、事業内容、公開の電話・メール窓口。2026-11-22確認</td></tr></tbody></table></div>
 <p>原リポジトリ全体や原ログを転記せず、公開に必要な内容を編集しています。認証情報、受講者情報、顧客情報、会話全文、元のGit履歴は含めていません。元資料を独立に検証できる範囲には限界があるため、公開資料を第三者による品質認証とは扱わないでください。</p>
 <p>既存資料の報告値と今回追加確認した値を区別し、記録とコミットを対応させています。今後の変更は<a href="UPDATE.md">更新手順</a>に従って追記します。<a href="index.html">技術実証レポートへ戻る</a>／<a href="press.html">プレスリリース</a></p></div></article></main>
 <footer class="site-footer"><div class="container"><div><p><strong>こむぎパソコン教室</strong></p><p>岩手県北上市 · 集計基準日 2026年11月22日（JST）</p><p>コードの検証と、実際のAI応答品質の評価を分けて公開しています。</p></div><nav aria-label="フッターナビゲーション"><a href="https://github.com/suguruwada0612-ship-it/dual-ai-qa-report">GitHub</a><a href="UPDATE.md">更新手順</a><a href="https://komugi-pc-school.tank.jp/">公式サイト・お問い合わせ</a></nav></div></footer></body></html>

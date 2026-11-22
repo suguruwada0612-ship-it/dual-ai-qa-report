@@ -4,14 +4,14 @@
   <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="6" refY="4" orient="auto"><path d="M0 0 L7 4 L0 8" fill="none" stroke="#597187" stroke-width="1.6"/></marker></defs>
   <rect x="1" y="1" width="558" height="918" rx="16" fill="#f1f6f8" stroke="#d7e2e8"/>
   <g font-family="Noto Sans JP,Yu Gothic,Meiryo,sans-serif">
-    <text x="32" y="46" font-size="22" font-weight="700" fill="#516578">開発と検証を、別の視点で。</text>
+    <text x="32" y="46" font-size="22" font-weight="700" fill="#516578">授業の視点が、設計と検証を動かす。</text>
     <g fill="none" stroke="#597187" stroke-width="2.5" marker-end="url(#arrow)">
       <path d="M254 158 V185"/><path d="M254 280 V307"/><path d="M254 402 V429"/><path d="M254 524 V551"/><path d="M254 646 V673"/>
       <path d="M476 719 H522 V475 H480"/>
     </g>
     <g>
       <rect x="30" y="68" width="448" height="90" rx="8" fill="#102b46"/>
-      <text x="52" y="102" font-size="22" fill="#b8d8e5">人間 · 要件を定める</text>
+      <text x="52" y="102" font-size="22" fill="#b8d8e5">講師 · 現場から要件を定める</text>
       <text x="52" y="137" font-size="28" font-weight="700" fill="#fff">教室の課題・採用条件</text>
       <rect x="30" y="190" width="448" height="90" rx="8" fill="#fff" stroke="#b8cbd6"/>
       <text x="52" y="224" font-size="22" fill="#516578">Codex · 開発とテスト</text>
@@ -26,13 +26,13 @@
       <text x="52" y="590" font-size="22" fill="#086260">Claude Code · 再監査</text>
       <text x="52" y="625" font-size="28" font-weight="700" fill="#172d45">修正結果と残課題を照合</text>
       <rect x="30" y="678" width="448" height="90" rx="8" fill="#102b46"/>
-      <text x="52" y="712" font-size="22" fill="#b8d8e5">人間 · Human Gate</text>
-      <text x="52" y="747" font-size="28" font-weight="700" fill="#fff">実際に使い、採用を判断</text>
+      <text x="52" y="712" font-size="22" fill="#b8d8e5">講師 · Human Gate</text>
+      <text x="52" y="747" font-size="28" font-weight="700" fill="#fff">実機で不備を発見・差し戻す</text>
     </g>
     <rect x="495" y="532" width="38" height="129" rx="5" fill="#f1f6f8"/>
     <text x="515" y="550" font-size="20" fill="#516578" writing-mode="tb">課題は差戻し</text>
     <line x1="30" y1="801" x2="530" y2="801" stroke="#d7e2e8"/>
     <text x="30" y="840" font-size="23" font-weight="700" fill="#086260">コードの合格と、応答品質の合格は別。</text>
-    <text x="30" y="879" font-size="22" fill="#516578">未確認の品質は、人間の判断に残す。</text>
+    <text x="30" y="879" font-size="22" fill="#516578">不合格なら、要件やモデル比較にも戻る。</text>
   </g>
 </svg>
