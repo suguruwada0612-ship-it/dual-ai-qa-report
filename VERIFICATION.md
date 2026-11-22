@@ -44,3 +44,4 @@
 ## OGP画像・共有カード設定（2026年11月22日）
 
 1200×630 PNG、編集用SVG、再生成スクリプトを追加。見出し76px、紺・白・青緑で講師の不合格判断を中心に構成。画像を目視し、日本語の欠け・重なりなし。index/pressに絶対URLのog:image・寸法・altとsummary_large_imageのTwitter Cardを設定。本文・集計・採用判断は変更なし。SNS各社での実際の投稿・キャッシュ更新は未検証。
+- 公開後確認：Pagesビルド0e858d6成功。本番PNGのHTTP 200、ローカルとのバイト一致、1200×630を確認。公開index.htmlとpress.htmlのog:image/twitter:imageが指定の絶対PNG URLに一致し、寸法・alt・summary_large_imageも検査PASS。
