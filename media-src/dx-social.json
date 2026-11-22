@@ -1,0 +1,342 @@
+{
+  "square": [
+    {
+      "text": "業務を止めないDXへ。",
+      "x": 58,
+      "y": 65,
+      "size": 72,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "AIと人で、",
+      "x": 58,
+      "y": 175,
+      "size": 60,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "使い続けられる品質を。",
+      "x": 58,
+      "y": 260,
+      "size": 60,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "DX・AXを支えるDual-AI QA",
+      "x": 62,
+      "y": 370,
+      "size": 36,
+      "bold": true,
+      "color": "#086260"
+    },
+    {
+      "text": "Codex × Claude Code × Human Gate",
+      "x": 62,
+      "y": 435,
+      "size": 33,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "rect": [
+        60,
+        550,
+        460,
+        125
+      ],
+      "color": "#eaf6f3"
+    },
+    {
+      "rect": [
+        560,
+        550,
+        460,
+        125
+      ],
+      "color": "#eaf6f3"
+    },
+    {
+      "rect": [
+        60,
+        730,
+        460,
+        125
+      ],
+      "color": "#eaf6f3"
+    },
+    {
+      "rect": [
+        560,
+        730,
+        460,
+        125
+      ],
+      "color": "#eaf6f3"
+    },
+    {
+      "text": "業務の要件",
+      "x": 85,
+      "y": 565,
+      "size": 38,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "目的・採用条件を定める",
+      "x": 85,
+      "y": 620,
+      "size": 25,
+      "bold": false,
+      "color": "#102b46"
+    },
+    {
+      "text": "AIによる開発",
+      "x": 585,
+      "y": 565,
+      "size": 38,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "Codex：実装・テスト",
+      "x": 585,
+      "y": 620,
+      "size": 25,
+      "bold": false,
+      "color": "#102b46"
+    },
+    {
+      "text": "人による実務評価",
+      "x": 85,
+      "y": 745,
+      "size": 38,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "Human Gate：UI・業務・応答",
+      "x": 85,
+      "y": 802,
+      "size": 23,
+      "bold": false,
+      "color": "#102b46"
+    },
+    {
+      "text": "独立QA",
+      "x": 585,
+      "y": 745,
+      "size": 38,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "Claude Code：仕様・コードを確認",
+      "x": 585,
+      "y": 802,
+      "size": 23,
+      "bold": false,
+      "color": "#102b46"
+    },
+    {
+      "text": "→",
+      "x": 522,
+      "y": 582,
+      "size": 32,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "↓",
+      "x": 780,
+      "y": 678,
+      "size": 32,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "←",
+      "x": 522,
+      "y": 765,
+      "size": 32,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "指摘 → 要件・実装へ差し戻し → 修正・再検証",
+      "x": 62,
+      "y": 892,
+      "size": 31,
+      "bold": true,
+      "color": "#086260"
+    },
+    {
+      "text": "こむぎパソコン教室｜岩手県北上市",
+      "x": 62,
+      "y": 995,
+      "size": 30,
+      "bold": true,
+      "color": "#102b46"
+    }
+  ],
+  "wide": [
+    {
+      "text": "業務を止めないDXへ。",
+      "x": 48,
+      "y": 55,
+      "size": 66,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "AIと人で、",
+      "x": 48,
+      "y": 155,
+      "size": 51,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "使い続けられる品質を。",
+      "x": 48,
+      "y": 230,
+      "size": 49,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "DX・AXを支えるDual-AI QA",
+      "x": 50,
+      "y": 340,
+      "size": 30,
+      "bold": true,
+      "color": "#086260"
+    },
+    {
+      "text": "Codex × Claude Code × Human Gate",
+      "x": 50,
+      "y": 400,
+      "size": 29,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "こむぎパソコン教室｜岩手県北上市",
+      "x": 50,
+      "y": 550,
+      "size": 28,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "rect": [
+        820,
+        48,
+        330,
+        82
+      ],
+      "color": "#eaf6f3"
+    },
+    {
+      "text": "業務の要件",
+      "x": 838,
+      "y": 68,
+      "size": 29,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "↓",
+      "x": 965,
+      "y": 128,
+      "size": 24,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "rect": [
+        820,
+        159,
+        330,
+        82
+      ],
+      "color": "#eaf6f3"
+    },
+    {
+      "text": "AIによる開発",
+      "x": 838,
+      "y": 179,
+      "size": 29,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "↓",
+      "x": 965,
+      "y": 239,
+      "size": 24,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "rect": [
+        820,
+        270,
+        330,
+        82
+      ],
+      "color": "#eaf6f3"
+    },
+    {
+      "text": "独立QA",
+      "x": 838,
+      "y": 290,
+      "size": 29,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "↓",
+      "x": 965,
+      "y": 350,
+      "size": 24,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "rect": [
+        820,
+        381,
+        330,
+        82
+      ],
+      "color": "#eaf6f3"
+    },
+    {
+      "text": "人による実務評価",
+      "x": 838,
+      "y": 401,
+      "size": 29,
+      "bold": true,
+      "color": "#102b46"
+    },
+    {
+      "text": "指摘は要件・実装へ戻す",
+      "x": 820,
+      "y": 507,
+      "size": 24,
+      "bold": true,
+      "color": "#086260"
+    },
+    {
+      "text": "修正 → 再検証",
+      "x": 820,
+      "y": 552,
+      "size": 28,
+      "bold": true,
+      "color": "#086260"
+    }
+  ]
+}
