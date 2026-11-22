@@ -45,9 +45,7 @@ node scripts/serve.mjs
 
 ## 追加のメディア素材・技術サンプル
 
-[画像・52秒動画・QAサンプルの閲覧ページ](https://suguruwada0612-ship-it.github.io/dual-ai-qa-report/media.html)を追加しました。制作日は2026年11月23日、紹介する実証記録の基準日は11月22日のままです。比較画像は実証記録に基づく再現、QAサンプルは完全架空データによるAPI接続なしのデモです。
 
 - `media.md` / `media.html`：素材一覧と説明
-- `assets/media/`：比較PNG/SVG、紹介MP4、字幕、絵コンテ
 - `media-src/` / `scripts/render-media.ps1`：台本・編集用データ・再制作コード
 - `examples/blind-qa/` / `sample.html`：最小QAサンプルと実行方法
