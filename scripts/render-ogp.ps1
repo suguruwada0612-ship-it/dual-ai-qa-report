@@ -24,7 +24,7 @@ Label 'テストはPASS。' 48 100 76 $navy $true
 Label '講師の判定は、' 48 195 76 $navy $true
 Label '不合格だった。' 48 290 76 $navy $true
 Label 'Human Gate × Codex × Claude Code' 52 410 30 $teal $true
-Label 'こむぎパソコン教室' 52 545 30 $navy $true
+Label '岩手・北上｜こむぎパソコン教室' 52 545 30 $navy $true
 $labels = @('Human Gate','Codex','Claude Code','再修正','Human Gate')
 $subs = @('講師が要件を定義','開発・テスト','独立QA','指摘を反映','実機で判断・差し戻し')
 for($i=0;$i -lt 5;$i++) {

@@ -33,7 +33,7 @@ function markdown(source,ids=[]){
 }
 function shell(title,body,file,description){
 const imageURL=base+'assets/ogp-dual-ai-qa.png';
-const imageAlt='テストはPASS。講師の判定は、不合格だった。Human Gate × Codex × Claude Code。こむぎパソコン教室のDual-AI QA技術実証レポート。';
+const imageAlt='テストはPASS。講師の判定は、不合格だった。Human Gate × Codex × Claude Code。Dual-AI QA 技術実証レポート。岩手・北上｜こむぎパソコン教室。';
 const share=['index.html','press.html'].includes(file)?`<meta property="og:image" content="${imageURL}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(imageAlt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${imageURL}"><meta name="twitter:image:alt" content="${esc(imageAlt)}">`:'';
 const active=f=>f===file?' aria-current="page"':'';
 return `<!doctype html>

@@ -45,3 +45,9 @@
 
 1200×630 PNG、編集用SVG、再生成スクリプトを追加。見出し76px、紺・白・青緑で講師の不合格判断を中心に構成。画像を目視し、日本語の欠け・重なりなし。index/pressに絶対URLのog:image・寸法・altとsummary_large_imageのTwitter Cardを設定。本文・集計・採用判断は変更なし。SNS各社での実際の投稿・キャッシュ更新は未検証。
 - 公開後確認：Pagesビルド0e858d6成功。本番PNGのHTTP 200、ローカルとのバイト一致、1200×630を確認。公開index.htmlとpress.htmlのog:image/twitter:imageが指定の絶対PNG URLに一致し、寸法・alt・summary_large_imageも検査PASS。
+
+## OGP文言の最終確定（2026年11月22日）
+
+- 発信者を確定文言「岩手・北上｜こむぎパソコン教室」に更新。メイン見出し・サブ見出し・補助タイトルは指定どおり維持。1200×630 PNGと編集用SVGを同じ生成元から再作成した。
+- index.html/press.htmlの画像代替テキストとビルド生成元も同期。og:image/twitter:imageは同じ絶対PNG URL、寸法1200×630、summary_large_imageを維持。
+- 公開前：PNG寸法・SVGの確定文言・両ページのmetaを検査PASS。両HTMLのbody部分が更新前と完全一致することを確認。通常の集計・リンク検査もPASS。変更対象は公開リポジトリのみ。
