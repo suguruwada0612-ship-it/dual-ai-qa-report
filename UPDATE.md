@@ -21,3 +21,7 @@ GitHubの Settings → Pages → Deploy from a branch → `main` / `/ (root)`。
 - Human Gate 10対応は改善の対応単位で、10件の受入合格を意味しない。
 - Cloudflare実通信は下限。Codex・Claudeの開発/監査用通信とは混ぜない。
 - 今回の公開サイトの表示・リンク検証は、Classroom DX製品の過去のQA集計へ足さない。
+
+## SNS共有カードの更新
+
+本番画像は `assets/ogp-dual-ai-qa.png`（1200×630）。編集可能なSVGと、同じ内容のPNG/SVGを生成する `scripts/render-ogp.ps1` を保存しています。WindowsのYu Gothicを使用し、`powershell -NoProfile -File scripts/render-ogp.ps1` で再生成後、通常のbuild/checkを実行します。SVGだけを編集した場合はPNGにも同じ変更を反映してください。SNS側のキャッシュ更新には時間がかかる場合があります。
