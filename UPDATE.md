@@ -25,3 +25,10 @@ GitHubの Settings → Pages → Deploy from a branch → `main` / `/ (root)`。
 ## SNS共有カードの更新
 
 本番画像は `assets/ogp-dual-ai-qa.png`（1200×630）。編集可能なSVGと、同じ内容のPNG/SVGを生成する `scripts/render-ogp.ps1` を保存しています。WindowsのYu Gothicを使用し、`powershell -NoProfile -File scripts/render-ogp.ps1` で再生成後、通常のbuild/checkを実行します。SVGだけを編集した場合はPNGにも同じ変更を反映してください。SNS側のキャッシュ更新には時間がかかる場合があります。
+
+## メディア素材とサンプル
+
+- 画像・動画の内容は `media-src/comparison.json` と `media-src/scenes.json` を更新し、`scripts/render-media.ps1` でPNG/SVG/MP4を再生成します。依存関係・台本は `media-src/README.md`。基準日と制作日は区別します。
+- `media.md` と `examples/blind-qa/README.md` は通常のbuildで `media.html` / `sample.html` に反映します。既存レポート本文や集計を変更する必要はありません。
+- サンプル変更後は `node --test examples/blind-qa/workflow.test.mjs` とデモを実行。生成された `output/` は公開しません。実AI呼び出しを追加する場合、このデモの範囲外です。
+- 動画は実際に再生し、テロップ・再現表示・基準日・残課題を確認。資料の別担当QAと公開後のHTTP・ファイル一致を `VERIFICATION.md` に記録します。

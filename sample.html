@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>技術者向け最小QAサンプル｜こむぎパソコン教室</title><meta name="description" content="Node.js標準ライブラリのみで動く、完全架空データのブラインド評価手順デモ。実LLMへの通信は行いません。"><meta name="theme-color" content="#102b46"><link rel="canonical" href="https://suguruwada0612-ship-it.github.io/dual-ai-qa-report/sample.html"><meta property="og:type" content="article"><meta property="og:locale" content="ja_JP"><meta property="og:title" content="技術者向け最小QAサンプル"><meta property="og:description" content="Node.js標準ライブラリのみで動く、完全架空データのブラインド評価手順デモ。実LLMへの通信は行いません。"><meta property="og:url" content="https://suguruwada0612-ship-it.github.io/dual-ai-qa-report/sample.html"><meta property="og:site_name" content="こむぎパソコン教室"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css"></head>
+<body><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><div class="container"><a class="brand" href="index.html">こむぎパソコン教室<small>技術実証レポート · 岩手県北上市</small></a><nav class="nav" aria-label="メインナビゲーション"><a href="index.html">レポート</a><a href="evidence.html">根拠・集計</a><a href="press.html">プレスリリース</a></nav></div></header>
+<main id="main" class="container"><article class="article prose"><p><a href="media.html">画像・動画・サンプル一覧へ</a></p><h1>最小サンプル：評価を伏せて比較する手順</h1>
+<p><strong>完全に架空の会話と手書きの評価を使う、ローカルの手順デモです。Codex、Claude、その他の実LLMは呼び出しません。実際の独立QAや、製品品質の実証結果ではありません。</strong> このサンプルの実行・テストを技術実証レポートの累計へ加算しません。</p>
+<p>「Codex役の事前評価を固定する」「モデル名と先行評価を伏せた入力を別評価者へ渡す」「戻ってきた評価を同じ観点で比べる」という考え方を、Node.jsだけで追えます。開発リポジトリの製品コード・監査生ログ・顧客データは使用していません。</p>
+<h2 id="section-1">依存と実行</h2>
+<p>Node.js 20以降を使用します。標準ライブラリのみで、<code>npm install</code>、APIキー、ネット接続は不要です。</p>
+<p>リポジトリのルートで実行します。</p>
+<pre><code>node examples/blind-qa/demo.mjs
+node --test examples/blind-qa/workflow.test.mjs</code></pre>
+<p>サンプルのフォルダを作業場所にした場合は、<code>node demo.mjs</code> と <code>node --test workflow.test.mjs</code> です。</p>
+<p>デモは既存の出力を上書きせず、<code>output/run-&lt;ランダムID&gt;/</code> に1実行分を保存します。生成物はこのフォルダの <code>.gitignore</code> で除外します。外部APIへの通信処理はありません。終了後に常駐するサーバーもありません。</p>
+<h2 id="section-2">処理の順序と出力</h2>
+<ol><li><code>fixtures.mjs</code> の架空データを読み、Codex役の手書き評価をJSONへ固定します。保存したUTF-8文字列のSHA-256を実行中のメモリに保持します。</li><li>事前評価の固定後に、別評価者向け <code>reviewer/blind-input.json</code> を作ります。会話は <code>caseId / turn / input / response</code> だけを階層ごとに選び、採点基準と一緒に渡します。モデル名、元の識別子、メタデータ、先行評価はコピーしません。</li><li>このデモでは、実評価者の代わりに、あらかじめ手書きした別評価を <code>reviewer/second-review.json</code> として読み込みます。</li><li>保存した事前評価とブラインド入力を読み直し、保持したハッシュと照合します。不一致なら比較を止めます。単なる整形変更でもバイト列が変わるため不一致になります。</li><li>ケースと観点を対応させて、判定・重要度・理由を <code>comparison.json</code> へ並べます。<code>manifest.json</code> には手順と3ファイルのハッシュを保存します。</li></ol>
+<pre><code>output/run-&lt;ID&gt;/
+  custodian/first-review.json     Codex役の先行評価（別評価者へ渡さない）
+  reviewer/blind-input.json       別評価者へ渡す入力
+  reviewer/second-review.json     手書きの架空評価
+  comparison.json                同じケース・観点での比較
+  manifest.json                  ハッシュと実施順の記録</code></pre>
+<p>実際の運用で別評価者へ渡す対象は <strong><code>blind-input.json</code> だけ</strong>です。出力フォルダ全体や <code>fixtures.mjs</code> を渡すと先行評価が見えます。このローカルデモは同じプロセスで両方の評価を扱うため、評価者の隔離や独立性を保証しません。</p>
+<h2 id="section-3">架空例で確認できること</h2>
+<p>読書会の案内と友人へのお礼という2ケースを、条件維持と文章の使いやすさの2観点で比較します。架空ケース2には「約束を加えない」という入力に反して、食事をごちそうする約束が含まれています。</p>
+<p>Codex役の評価は条件違反をLowとし、文章の使いやすさはPASS。別評価者役は条件違反をMediumとし、そのまま使える文章でもないと評価します。出力は <strong>4行中2行の判定または重要度に差がある</strong>ことを示します。同じ問題の異なる見方なので「不具合を2件発見した」や、重大度の合計へは変換しません。修正候補は表示しますが、実際の修正・再評価・採用判断は行いません。</p>
+<h2 id="section-4">テストと再現範囲</h2>
+<p><code>node:test</code> は以下を検証します。</p>
+<ul><li>未知の項目を各階層へ追加しても、モデル名・元ID・先行評価がブラインド入力へ入らないこと。</li><li>保存後の事前評価や会話を変更した場合に、比較を拒否すること。</li><li>事前固定より前の入力作成、評価の再固定、二重比較を拒否すること。</li><li>別評価の並び順が異なっても、同じケース・観点に対応させて差を示すこと。</li><li>未評価の観点や重複を、暗黙に無視せずエラーにすること。</li></ul>
+<p>固定データと評価のJSON内容・ハッシュ・比較結果は同じ条件で再現できます。実行ごとに出力フォルダ名だけ変わります。テスト内で異常条件も与えますが、モデルを動かす評価ではありません。</p>
+<h2 id="section-5">未再現の範囲と限界</h2>
+<ul><li>実LLMへの呼び出し、評価能力、盲検の効果、人間の使いやすさ、統計的優位、開発時の実監査の再現は含みません。</li><li>許可項目方式が除くのは構造化メタデータです。会話本文自身にモデル名・先行所見・個人情報が書かれていれば、その文字は残ります。実データを使う場合は配布前の本文確認と編集が必要です。</li><li>ハッシュは、この実行で保持した値からの変更を検出します。原本とハッシュを両方差し替えられる人への防御、外部タイムスタンプ、署名、実行順の第三者証明にはなりません。</li><li>別評価者役の値は正解ではありません。差があっても、どちらが正しいかを自動決定しません。現実の運用では担当者が根拠を確認し、必要な修正・再評価を判断します。</li></ul>
+<p><a href="report.md">技術実証レポート</a> ／ <a href="index.html">公開サイト</a> ／ <a href="evidence.md">集計根拠</a></p><h2>ソースファイル</h2><ul><li><a href="examples/blind-qa/README.md">README.md</a></li><li><a href="examples/blind-qa/fixtures.mjs">fixtures.mjs</a></li><li><a href="examples/blind-qa/workflow.mjs">workflow.mjs</a></li><li><a href="examples/blind-qa/demo.mjs">demo.mjs</a></li><li><a href="examples/blind-qa/workflow.test.mjs">workflow.test.mjs</a></li></ul></article></main>
+<footer class="site-footer"><div class="container"><div><p><strong>こむぎパソコン教室</strong></p><p>岩手県北上市 · 集計基準日 2026年11月22日（JST）</p><p>コードの検証と、実際のAI応答品質の評価を分けて公開しています。</p></div><nav aria-label="フッターナビゲーション"><a href="https://github.com/suguruwada0612-ship-it/dual-ai-qa-report">GitHub</a><a href="media.html">画像・動画・QAサンプル</a><a href="UPDATE.md">更新手順</a><a href="https://komugi-pc-school.tank.jp/">公式サイト・お問い合わせ</a></nav></div></footer></body></html>

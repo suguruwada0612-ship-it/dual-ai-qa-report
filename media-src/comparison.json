@@ -1,0 +1,20 @@
+{
+ "width":1200,"height":630,"background":"#ffffff",
+ "elements":[
+  {"text":"ISSUE #5  /  実証記録に基づく再現","x":48,"y":26,"size":24,"color":"#086260"},
+  {"text":"明確な指示でも、本文が返らない。","x":45,"y":70,"size":50,"bold":true},
+  {"rect":[48,153,535,206],"color":"#f1f6f8"},
+  {"rect":[607,153,545,206],"color":"#102b46"},
+  {"text":"講師の依頼","x":70,"y":169,"size":26,"color":"#086260","bold":true},
+  {"text":"120文字で","x":70,"y":218,"size":43,"bold":true},
+  {"text":"提案してください。","x":70,"y":275,"size":43,"bold":true},
+  {"text":"当時のAIの応答（一例）","x":631,"y":169,"size":26,"color":"#ffffff","bold":true},
+  {"text":"文章の長さは120文字","x":631,"y":222,"size":37,"color":"#ffffff","bold":true},
+  {"text":"程度にしますか？","x":631,"y":278,"size":37,"color":"#ffffff","bold":true},
+  {"text":"Human Gate：教育品質として不合格","x":48,"y":382,"size":37,"bold":true},
+  {"text":"会話履歴の修正 → LLM比較 → 独立QA → 再修正","x":48,"y":448,"size":30,"color":"#086260","bold":true},
+  {"text":"通常モデルはMistral。Gemma未採用・Issue #8後の実応答品質は再検証待ち。","x":48,"y":507,"size":23},
+  {"text":"岩手・北上｜こむぎパソコン教室","x":48,"y":564,"size":26,"bold":true},
+  {"text":"記録基準：2026-11-22","x":860,"y":570,"size":21}
+ ]
+}

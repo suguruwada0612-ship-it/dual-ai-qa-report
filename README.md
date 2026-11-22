@@ -42,3 +42,12 @@ node scripts/serve.mjs
 このリポジトリは新しいGit履歴から開始した公開資料専用の構成です。元の開発リポジトリのコード・Git履歴・認証情報・個人情報・顧客情報・非公開原ログは含みません。資料の整理・サイト制作時に製品テストや実AI通信を再実行したとは主張しません。
 
 発信・お問い合わせ：こむぎパソコン教室／[公式サイト](https://komugi-pc-school.tank.jp/)／info@komugi-pc-school.tank.jp
+
+## 追加のメディア素材・技術サンプル
+
+[画像・52秒動画・QAサンプルの閲覧ページ](https://suguruwada0612-ship-it.github.io/dual-ai-qa-report/media.html)を追加しました。制作日は2026年11月23日、紹介する実証記録の基準日は11月22日のままです。比較画像は実証記録に基づく再現、QAサンプルは完全架空データによるAPI接続なしのデモです。
+
+- `media.md` / `media.html`：素材一覧と説明
+- `assets/media/`：比較PNG/SVG、紹介MP4、字幕、絵コンテ
+- `media-src/` / `scripts/render-media.ps1`：台本・編集用データ・再制作コード
+- `examples/blind-qa/` / `sample.html`：最小QAサンプルと実行方法

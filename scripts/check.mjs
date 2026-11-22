@@ -23,7 +23,7 @@ assert.equal(records.filter(r=>r.resultObtained).length,data.summary.qaResultsOb
 const expected={recordedMajorTestRuns:37,recordedCaseExecutions:2970,latestTestCases:200,qaStarts:43,qaResultsObtained:41,qaResultsMissing:2,humanGateResponses:10,cloudflareRequestsLowerBound:170};
 assert.deepEqual(data.summary,expected,'Update expected snapshot only after source reconciliation');
 const files=[];
-function walk(dir=''){for(const entry of fs.readdirSync(path.join(root,dir),{withFileTypes:true})){if(['.git','.preview','node_modules'].includes(entry.name))continue;const f=path.posix.join(dir,entry.name);if(entry.isDirectory())walk(f);else files.push(f);}}
+function walk(dir=''){for(const entry of fs.readdirSync(path.join(root,dir),{withFileTypes:true})){if(['.git','.preview','node_modules'].includes(entry.name)||(dir==='examples/blind-qa'&&entry.name==='output'))continue;const f=path.posix.join(dir,entry.name);if(entry.isDirectory())walk(f);else files.push(f);}}
 walk();
 const forbidden=files.filter(f=>/(^|\/)(?:\.env|\.runtime|credentials|secrets|claude-stdout|claude-prompt|session)/i.test(f));
 assert.deepEqual(forbidden,[],'Forbidden public file');

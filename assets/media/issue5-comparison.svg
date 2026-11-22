@@ -1,0 +1,17 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'><rect width='1200' height='630' fill='white'/>
+<text x='51' y='50' font-family='Yu Gothic,Meiryo,sans-serif' font-size='24' font-weight='400' fill='#086260'>ISSUE #5  /  実証記録に基づく再現</text>
+<text x='48' y='120' font-family='Yu Gothic,Meiryo,sans-serif' font-size='50' font-weight='700' fill='#102b46'>明確な指示でも、本文が返らない。</text>
+<rect x='48' y='153' width='535' height='206' fill='#f1f6f8'/>
+<rect x='607' y='153' width='545' height='206' fill='#102b46'/>
+<text x='73' y='195' font-family='Yu Gothic,Meiryo,sans-serif' font-size='26' font-weight='700' fill='#086260'>講師の依頼</text>
+<text x='73' y='261' font-family='Yu Gothic,Meiryo,sans-serif' font-size='43' font-weight='700' fill='#102b46'>120文字で</text>
+<text x='73' y='318' font-family='Yu Gothic,Meiryo,sans-serif' font-size='43' font-weight='700' fill='#102b46'>提案してください。</text>
+<text x='634' y='195' font-family='Yu Gothic,Meiryo,sans-serif' font-size='26' font-weight='700' fill='#ffffff'>当時のAIの応答（一例）</text>
+<text x='634' y='259' font-family='Yu Gothic,Meiryo,sans-serif' font-size='37' font-weight='700' fill='#ffffff'>文章の長さは120文字</text>
+<text x='634' y='315' font-family='Yu Gothic,Meiryo,sans-serif' font-size='37' font-weight='700' fill='#ffffff'>程度にしますか？</text>
+<text x='51' y='419' font-family='Yu Gothic,Meiryo,sans-serif' font-size='37' font-weight='700' fill='#102b46'>Human Gate：教育品質として不合格</text>
+<text x='51' y='478' font-family='Yu Gothic,Meiryo,sans-serif' font-size='30' font-weight='700' fill='#086260'>会話履歴の修正 → LLM比較 → 独立QA → 再修正</text>
+<text x='51' y='530' font-family='Yu Gothic,Meiryo,sans-serif' font-size='23' font-weight='400' fill='#102b46'>通常モデルはMistral。Gemma未採用・Issue #8後の実応答品質は再検証待ち。</text>
+<text x='51' y='590' font-family='Yu Gothic,Meiryo,sans-serif' font-size='26' font-weight='700' fill='#102b46'>岩手・北上｜こむぎパソコン教室</text>
+<text x='863' y='591' font-family='Yu Gothic,Meiryo,sans-serif' font-size='21' font-weight='400' fill='#102b46'>記録基準：2026-11-22</text>
+</svg>

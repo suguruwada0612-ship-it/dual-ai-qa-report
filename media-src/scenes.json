@@ -1,0 +1,44 @@
+{
+ "fps":24,"width":1280,"height":720,
+ "recordAsOf":"2026-11-22",
+ "scenes":[
+  {"id":"01","duration":8,"label":"現場の判断が、開発を動かした","lines":[
+   {"text":"テストはPASS。","x":64,"y":155,"size":74,"bold":true},
+   {"text":"講師の判定は、","x":64,"y":250,"size":74,"bold":true},
+   {"text":"不合格だった。","x":64,"y":345,"size":74,"bold":true},
+   {"text":"Human Gate × Codex × Claude Code","x":68,"y":505,"size":38,"color":"#086260","bold":true}]},
+  {"id":"02","duration":9,"label":"Issue #5：明確な指示と、当時の応答（一例）","lines":[
+   {"rect":[60,155,1160,177],"color":"#f1f6f8"},
+   {"text":"講師","x":82,"y":169,"size":28,"color":"#086260","bold":true},
+   {"text":"「120文字で提案してください。」","x":82,"y":224,"size":48,"bold":true},
+   {"rect":[60,357,1160,220],"color":"#102b46"},
+   {"text":"当時のAI","x":82,"y":372,"size":28,"color":"#ffffff","bold":true},
+   {"text":"「文章の長さは120文字程度に","x":82,"y":427,"size":48,"color":"#ffffff","bold":true},
+   {"text":"しますか？」","x":82,"y":494,"size":48,"color":"#ffffff","bold":true}]},
+  {"id":"03","duration":8,"label":"Human Gate：講師による実機検証と教育上の判断","lines":[
+   {"text":"教育品質として、不合格。","x":64,"y":185,"size":64,"bold":true},
+   {"text":"初心者が、自分の指示を疑わないために。","x":68,"y":304,"size":42},
+   {"text":"自動テストの成功だけでは、","x":68,"y":403,"size":40,"color":"#086260","bold":true},
+   {"text":"授業で使えるとは判断しなかった。","x":68,"y":461,"size":40,"color":"#086260","bold":true},
+   {"text":"Issue #4の170テスト成功後に、講師が実機で不備を発見。","x":68,"y":562,"size":27}]},
+  {"id":"04","duration":9,"label":"三者の役割：要件から独立QA、再修正へ","lines":[
+   {"text":"講師 / Human Gate","x":64,"y":170,"size":43,"bold":true},
+   {"text":"要件を定義し、実機で問題を発見・差し戻す","x":68,"y":228,"size":33},
+   {"text":"Codex","x":64,"y":316,"size":43,"bold":true},
+   {"text":"実装・自動テスト・指摘に基づく修正","x":68,"y":374,"size":33},
+   {"text":"Claude Code","x":64,"y":462,"size":43,"bold":true},
+   {"text":"別のAIとして独立QA・修正後の再監査","x":68,"y":520,"size":33}]},
+  {"id":"05","duration":10,"label":"不合格の判断から、比較・独立評価・再修正へ","lines":[
+   {"text":"会話履歴を修正 → Mistralの品質を評価","x":64,"y":162,"size":43,"bold":true},
+   {"text":"Gemmaを候補に比較 → 独立ブラインドQA","x":64,"y":254,"size":41,"bold":true},
+   {"text":"モデル名とCodexの評価を伏せ、Claude Codeが評価。","x":68,"y":328,"size":29},
+   {"text":"別案の本文不足・未指定の約束・待機負担が残る。","x":68,"y":405,"size":33},
+   {"text":"Issue #8で指示とUIを修正。コードQAは合格。","x":68,"y":500,"size":36,"color":"#086260","bold":true}]},
+  {"id":"06","duration":8,"label":"確認できたことと、残る課題","lines":[
+   {"text":"コードの合格と、応答品質は別。","x":64,"y":161,"size":57,"bold":true},
+   {"text":"通常モデルはMistral。Gemmaは正式採用していません。","x":68,"y":282,"size":33},
+   {"text":"Issue #8後の実応答品質は、再検証待ちです。","x":68,"y":350,"size":37,"bold":true},
+   {"text":"Dual-AI QA 技術実証レポートで経緯と根拠を公開","x":68,"y":458,"size":33,"color":"#086260","bold":true},
+   {"text":"suguruwada0612-ship-it.github.io/dual-ai-qa-report/","x":68,"y":525,"size":27}]}
+ ]
+}
