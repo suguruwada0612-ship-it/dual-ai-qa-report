@@ -1,0 +1,8 @@
+﻿"ID","試験群","呼び出し下限","数え方","出典"
+"L1","Issue #3 Mistral題材動作","10","成功10回答から送信下限10","docs/AUDIT_20261122_ISSUE3.md:11"
+"L2","Issue #4 Mistral 2題材","20","成功10回答×2題材から送信下限20","docs/AUDIT_20261122_ISSUE4.md:7"
+"L3","Issue #5 Mistral最終4会話","40","成功40回答から送信下限40（失敗再送分は未加算）","docs/AI_QUALITY_20261122_ISSUE5.md:17"
+"L4","Issue #5 Mistral安全境界","20","2題材×10入力、記録20件のsuccessも追加照合","docs/AI_QUALITY_20261122_ISSUE5.md:21"
+"L5","Issue #5 Gemma比較","40","送信40回。timeout等を含む承認枠","docs/AI_QUALITY_20261122_ISSUE5.md:25"
+"L6","Issue #6後続 Gemma比較","20","送信20回＝19成功＋1timeout","docs/GEMMA_LIVE_20_20261122.md:16"
+"L7","Issue #7 Gemma比較","20","送信20回＝18成功＋2timeout","docs/GEMMA_DUAL_AI_QA_20261122.md:37"

@@ -1,0 +1,6 @@
+node_modules/
+.preview/
+.runtime/
+*.log
+*.zip
+.env*

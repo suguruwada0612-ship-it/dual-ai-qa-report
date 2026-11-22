@@ -1,0 +1,1312 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-11-22",
+  "timezone": "Asia/Tokyo",
+  "publisher": "こむぎパソコン教室",
+  "sourceRepository": "komugi-classroom-dx",
+  "sourceCommit": "47d820885f6f5fd28a225fbf8829a231550d2044",
+  "sourceBranch": "codex/classroom-dx-mvp-v1",
+  "verificationScope": "既存資料の照合・再集計。今回、新しい製品テスト・Claude QA・Cloudflare通信は実行していない。",
+  "previousReport": {
+    "filename": "ClassroomDX_Dual_AI_QA_Cumulative_20261122 (1).md",
+    "sha256": "8f2bca8b310744e7b960ef3e2233ef2eafcae0fad7456057efb7495399d6abd6",
+    "tests": 2970,
+    "records": 37,
+    "qaStarts": 40,
+    "qaResultsObtained": 38,
+    "qaResultsMissing": 2
+  },
+  "summary": {
+    "recordedMajorTestRuns": 37,
+    "recordedCaseExecutions": 2970,
+    "latestTestCases": 200,
+    "qaStarts": 43,
+    "qaResultsObtained": 41,
+    "qaResultsMissing": 2,
+    "humanGateResponses": 10,
+    "cloudflareRequestsLowerBound": 170
+  },
+  "methodology": {
+    "tests": "既存累計の37件の主要実行記録を採用し、原典の記載件数を再照合。コマンド実行総回数ではない。固定受入の別実行、中間再試行、同一結果の再言及を追加しない。2,970は延べケース実行数で、異なるテスト2,970種類ではない。200は最新記録の全体テストケース数で固定受入5件を内包。",
+    "qa": "18群の限定メタデータを照合。内部ではsession_idにより重複保存を除き43実行を確認したが、識別子は公開しない。is_error=falseで所見本文ありを41取得、エラーで所見なしを2未取得として記録。起動回数はAPIリクエスト総数ではない。",
+    "humanGate": "5件のHuman Gate明記対応とIssue #1〜#5の5件。対応単位であり、ユニーク不具合数・正式受入合格数ではない。Issue #6〜#8を新規Human Gate起点として追加しない。",
+    "live": "重複しない7試験群の最低送信数を合算。成功回答は少なくとも1送信を伴うため下限へ換算し、送信枠の件数と成功回答数を混同しない。下限170は全期間の正確な総数ではない。Claude監査の通信・11回目のローカル拒否・モックは加算しない。",
+    "privacy": "公開データは件数・手順・限定メタデータと文書参照。元の生ログ、session_id、顧客情報、会話全文、認証情報は含めない。ハッシュは原本同一性の照合用で、公開読者が非公開原本の正しさを独立再現できることは意味しない。"
+  },
+  "testRuns": [
+    {
+      "id": "T01",
+      "date": "2026-11-17",
+      "phase": "初版MVP・初回",
+      "cases": 2,
+      "source": {
+        "file": "STATUS.md",
+        "line": 184,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T02",
+      "date": "2026-11-17",
+      "phase": "状態文書追加時",
+      "cases": 2,
+      "source": {
+        "file": "STATUS.md",
+        "line": 186,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T03",
+      "date": "2026-11-17",
+      "phase": "Dual Repair登録時の隔離回帰",
+      "cases": 2,
+      "source": {
+        "file": "STATUS.md",
+        "line": 187,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T04",
+      "date": "2026-11-17",
+      "phase": "Windows Sandbox Preflight再検証",
+      "cases": 2,
+      "source": {
+        "file": "STATUS.md",
+        "line": 189,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T05",
+      "date": "2026-11-17",
+      "phase": "初期Medium修正",
+      "cases": 8,
+      "source": {
+        "file": "STATUS.md",
+        "line": 190,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T06",
+      "date": "2026-11-17",
+      "phase": "Human Gate：役割切替",
+      "cases": 10,
+      "source": {
+        "file": "STATUS.md",
+        "line": 192,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T07",
+      "date": "2026-11-17",
+      "phase": "Human Gate：教材マスター表示",
+      "cases": 11,
+      "source": {
+        "file": "STATUS.md",
+        "line": 193,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T08",
+      "date": "2026-11-17",
+      "phase": "Human Gate：次回開始位置登録",
+      "cases": 11,
+      "source": {
+        "file": "STATUS.md",
+        "line": 194,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T09",
+      "date": "2026-11-17",
+      "phase": "Human Gate：Windows起動",
+      "cases": 11,
+      "source": {
+        "file": "STATUS.md",
+        "line": 195,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T10",
+      "date": "2026-11-17",
+      "phase": "Excelカリキュラムマスター",
+      "cases": 14,
+      "source": {
+        "file": "STATUS.md",
+        "line": 196,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T11",
+      "date": "2026-11-17",
+      "phase": "Human Gate：次回位置の連動選択",
+      "cases": 15,
+      "source": {
+        "file": "STATUS.md",
+        "line": 197,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T12",
+      "date": "2026-11-17",
+      "phase": "MVP完成仕様への統合",
+      "cases": 19,
+      "source": {
+        "file": "STATUS.md",
+        "line": 198,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T13",
+      "date": "2026-11-17",
+      "phase": "講師ログインIDの明示",
+      "cases": 19,
+      "source": {
+        "file": "STATUS.md",
+        "line": 201,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T14",
+      "date": "2026-11-17",
+      "phase": "講師コード初回設定・再設定",
+      "cases": 21,
+      "source": {
+        "file": "STATUS.md",
+        "line": 202,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T15",
+      "date": "2026-11-17",
+      "phase": "Windows PowerShell 5.1起動復旧",
+      "cases": 21,
+      "source": {
+        "file": "STATUS.md",
+        "line": 204,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T16",
+      "date": "2026-11-17",
+      "phase": "講師復帰・タイピング追加",
+      "cases": 37,
+      "source": {
+        "file": "STATUS.md",
+        "line": 312,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T17",
+      "date": "2026-11-17",
+      "phase": "学習継続・電子教材",
+      "cases": 57,
+      "source": {
+        "file": "STATUS.md",
+        "line": 339,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T18",
+      "date": "2026-11-17",
+      "phase": "任意タイピング",
+      "cases": 65,
+      "source": {
+        "file": "STATUS.md",
+        "line": 123,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T19",
+      "date": "2026-11-17",
+      "phase": "M8限定AI接続・回帰",
+      "cases": 78,
+      "source": {
+        "file": "STATUS.md",
+        "line": 97,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T20",
+      "date": "2026-11-17",
+      "phase": "Excel独自課題",
+      "cases": 86,
+      "source": {
+        "file": "STATUS.md",
+        "line": 378,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T21",
+      "date": "2026-11-17",
+      "phase": "生徒ID・PIN個別認証",
+      "cases": 97,
+      "source": {
+        "file": "STATUS.md",
+        "line": 406,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T22",
+      "date": "2026-11-17",
+      "phase": "AI練習の初期構成",
+      "cases": 112,
+      "source": {
+        "file": "STATUS.md",
+        "line": 442,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T23",
+      "date": "2026-11-17",
+      "phase": "AI練習・段階3入力修正",
+      "cases": 113,
+      "source": {
+        "file": "STATUS.md",
+        "line": 434,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T24",
+      "date": "2026-11-17",
+      "phase": "前回振り返りによるAI出力修正",
+      "cases": 114,
+      "source": {
+        "file": "STATUS.md",
+        "line": 431,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T25",
+      "date": "2026-11-17",
+      "phase": "AI送信失敗時の再送修正",
+      "cases": 114,
+      "source": {
+        "file": "STATUS.md",
+        "line": 427,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T26",
+      "date": "2026-11-17",
+      "phase": "AI応答待ち表示・自動更新",
+      "cases": 117,
+      "source": {
+        "file": "STATUS.md",
+        "line": 423,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T27",
+      "date": "2026-11-18",
+      "phase": "日本語タイピング6モード初回",
+      "cases": 129,
+      "source": {
+        "file": "STATUS.md",
+        "line": 457,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T28",
+      "date": "2026-11-18",
+      "phase": "日本語タイピング6モード修正後",
+      "cases": 138,
+      "source": {
+        "file": "STATUS.md",
+        "line": 458,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T29",
+      "date": "2026-11-18",
+      "phase": "DEC-018 AIラリー",
+      "cases": 143,
+      "source": {
+        "file": "STATUS.md",
+        "line": 472,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T30",
+      "date": "2026-11-22",
+      "phase": "Issue #1：10往復・タイピング前",
+      "cases": 144,
+      "source": {
+        "file": "STATUS.md",
+        "line": 478,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T31",
+      "date": "2026-11-22",
+      "phase": "Issue #2：独立セッション",
+      "cases": 152,
+      "source": {
+        "file": "STATUS.md",
+        "line": 482,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T32",
+      "date": "2026-11-22",
+      "phase": "Issue #3：AI接続と題材診断",
+      "cases": 164,
+      "source": {
+        "file": "STATUS.md",
+        "line": 511,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T33",
+      "date": "2026-11-22",
+      "phase": "Issue #4：自由チャットUI",
+      "cases": 170,
+      "source": {
+        "file": "STATUS.md",
+        "line": 521,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T34",
+      "date": "2026-11-22",
+      "phase": "Issue #5：履歴・再送品質",
+      "cases": 185,
+      "source": {
+        "file": "STATUS.md",
+        "line": 537,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T35",
+      "date": "2026-11-22",
+      "phase": "Issue #6：Gemma候補検証実装",
+      "cases": 193,
+      "source": {
+        "file": "STATUS.md",
+        "line": 551,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T36",
+      "date": "2026-11-22",
+      "phase": "Issue #6後続：20通信ペア試験",
+      "cases": 194,
+      "source": {
+        "file": "STATUS.md",
+        "line": 557,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "T37",
+      "date": "2026-11-22",
+      "phase": "Issue #8：別案・約束・再送UI修正",
+      "cases": 200,
+      "source": {
+        "file": "docs/AUDIT_20261122_ISSUE8.md",
+        "line": 14,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    }
+  ],
+  "qaGroups": [
+    {
+      "phase": "初版MVP・初期Medium修正",
+      "starts": 3,
+      "resultsObtained": 3,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 191,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A01",
+          "sourceArtifact": ".runtime/claude-review-01fbf06/claude-audit.json",
+          "sourceSha256": "8271b3955d0cfa750c819cd2a479973987baf8af30cf068fc11a4e8efd56b8d2",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A02",
+          "sourceArtifact": ".runtime/mvp-medium-review/final.json",
+          "sourceSha256": "24b9b234ca00968fdd7288039a33d95a8c88279a17779c697212048e50d9a6ba",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A03",
+          "sourceArtifact": ".runtime/mvp-medium-review/initial.json",
+          "sourceSha256": "7bb9d05f07842682d14bc83237bfd982d93e4b6ca4d3f44b744a68e7467d0d76",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "MVP仕様統合",
+      "starts": 2,
+      "resultsObtained": 2,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 178,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A04",
+          "sourceArtifact": ".runtime/product-spec-review/final.json",
+          "sourceSha256": "8c01fa80a7f141d8720df5f222d59972296a02593d5848c422ea1844f216ee55",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A05",
+          "sourceArtifact": ".runtime/product-spec-review/initial.json",
+          "sourceSha256": "b5ed25ad3a2a8f2a849e259d5ac00609c619c4e10abf6ceabc0cfb49a9d3b845",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "講師復帰・タイピング追加",
+      "starts": 2,
+      "resultsObtained": 2,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 308,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A06",
+          "sourceArtifact": ".runtime/typing-review/final.json",
+          "sourceSha256": "ea75e8765d2d3469af9b367eb1a453a2e9fa615a655a873c0b04f5cb8a20a96c",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A07",
+          "sourceArtifact": ".runtime/typing-review/initial.json",
+          "sourceSha256": "22fc30fabded600b643284dd348ea7b25b4c2ce3ccf6ffb5ab30b1ae3031a024",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "学習継続・電子教材登録",
+      "starts": 5,
+      "resultsObtained": 5,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 343,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A08",
+          "sourceArtifact": ".runtime/continuation-review/final.json",
+          "sourceSha256": "01461f88d601863d2fe75a2c0fb88321e2da3f0510a906b8e0e78bf356fb6c13",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A09",
+          "sourceArtifact": ".runtime/continuation-review/final2.json",
+          "sourceSha256": "fcb5468f944e86ec6fe15bd214b1dcb668bcec3007b34c2935265d4eb2724674",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A10",
+          "sourceArtifact": ".runtime/continuation-review/final3.json",
+          "sourceSha256": "cdc64cbca44f6b72d98589b5b1dd026830e92bd01ecdb641bd107baae9db3ef5",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A11",
+          "sourceArtifact": ".runtime/continuation-review/final4.json",
+          "sourceSha256": "0ea37b3adf6c9a3ebe6437328c586bec36124245d2513af5ae98ea0c67b37ad3",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A12",
+          "sourceArtifact": ".runtime/continuation-review/initial.json",
+          "sourceSha256": "f37c4dc7331b3475c0074a9dfb5a8246dfa45aee21aa452aca2520b96f96a449",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "任意タイピング",
+      "starts": 2,
+      "resultsObtained": 2,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 134,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A13",
+          "sourceArtifact": ".runtime/optional-typing-review/round1.json",
+          "sourceSha256": "1b1fbbbf36936b3509676dd20031714f1a76b62246ea0c23ceb1de8e750aa83f",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A14",
+          "sourceArtifact": ".runtime/optional-typing-review/round2.json",
+          "sourceSha256": "b3729b450ae59542c48add068f565081a7f67215d4671f8c05fb0af0e81b5a94",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "Excel独自課題",
+      "starts": 3,
+      "resultsObtained": 3,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 387,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A15",
+          "sourceArtifact": ".runtime/exercises-review/final-test.json",
+          "sourceSha256": "b6c19ab000b070481ac5ce65052bc47fd3f50f9291aabc37a38739294742363b",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A16",
+          "sourceArtifact": ".runtime/exercises-review/round1.json",
+          "sourceSha256": "8781f46c7d8efb3c9bb9e4045dfa750b6d0a7447978ed9d2800be6722a052447",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A17",
+          "sourceArtifact": ".runtime/exercises-review/round2.json",
+          "sourceSha256": "3b2775380636bd8ea31264a0ee1298a441236b4b28080559c9f31927cc25c87d",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "個別生徒認証",
+      "starts": 1,
+      "resultsObtained": 0,
+      "resultsMissing": 1,
+      "source": {
+        "file": "STATUS.md",
+        "line": 409,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A18",
+          "sourceArtifact": ".runtime/student-auth-review/round1.json",
+          "sourceSha256": "7db1c0c6ff4d099944146bf0d098f833b0e4c598b0933b4c6264fdee2d277896",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": true,
+          "resultObtained": false
+        }
+      ]
+    },
+    {
+      "phase": "初期AI活用練習",
+      "starts": 3,
+      "resultsObtained": 2,
+      "resultsMissing": 1,
+      "source": {
+        "file": "STATUS.md",
+        "line": 448,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A19",
+          "sourceArtifact": ".runtime/ai-practice-review/round1.json",
+          "sourceSha256": "a62f5fd9ec57fd25693d974d3d13d974b9b2bff2dd176326fb123eb2b5b09c13",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": true,
+          "resultObtained": false
+        },
+        {
+          "id": "A20",
+          "sourceArtifact": ".runtime/ai-practice-review/round2.json",
+          "sourceSha256": "9e88fef0c2f0a005969d999e3aeea198f0ab09333bfc4ee8e86385e9f7799bbd",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A21",
+          "sourceArtifact": ".runtime/ai-practice-review/round3.json",
+          "sourceSha256": "da71d97c554da6241fe99a95bd59e76e94484fdb8f115ddeca6f969761a54fe0",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "日本語タイピング6モード",
+      "starts": 2,
+      "resultsObtained": 2,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 461,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A22",
+          "sourceArtifact": ".runtime/typing-flow-review/round1.json",
+          "sourceSha256": "e50ebf6b0f75f70d73175e12600434677e6afbdb7e7d383810d3117fce4f18a6",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A23",
+          "sourceArtifact": ".runtime/typing-flow-review/round2.json",
+          "sourceSha256": "aeffa2c8add14bba9d278733206d13044cc3e6d28a2f5569f6a634948b2fd415",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "DEC-018 AIラリー",
+      "starts": 1,
+      "resultsObtained": 1,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 472,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A24",
+          "sourceArtifact": ".runtime/rally-review/round1.json",
+          "sourceSha256": "47cded14e4e954c3215aaa3cf620bf1f6c71689b94a9e582ba813fa4abf9be44",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "Issue #1",
+      "starts": 3,
+      "resultsObtained": 3,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 478,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A25",
+          "sourceArtifact": ".runtime/issue1-review/round1.json",
+          "sourceSha256": "36c102c0f5722ef554fea6013ee6f27985ea4006502bfa90da6065b1091f6e58",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A26",
+          "sourceArtifact": ".runtime/issue1-review/round2.json",
+          "sourceSha256": "9cc9f93a7afba76799b8bb8e6ca091299fc28aa787a23ee7ba08051378db7b9e",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A27",
+          "sourceArtifact": ".runtime/issue1-review/round3.json",
+          "sourceSha256": "72522fdc441d7f202cd070edcd5dd97785876837f23c0874f60d0c6395e966cf",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "Issue #2",
+      "starts": 3,
+      "resultsObtained": 3,
+      "resultsMissing": 0,
+      "source": {
+        "file": "docs/AUDIT_20261122_ISSUE2.md",
+        "line": 6,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A28",
+          "sourceArtifact": ".runtime/issue2-review/round1.json",
+          "sourceSha256": "0c46ba65aee9065995eab703fd2d4ad1401d6b4ea0a540f7291b18f46eb988be",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A29",
+          "sourceArtifact": ".runtime/issue2-review/round2.json",
+          "sourceSha256": "5e0a163314e4708d8484df51adb0a32904b23e832ce8ee26bd91893047798960",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A30",
+          "sourceArtifact": ".runtime/issue2-review/round3.json",
+          "sourceSha256": "18f3bbeddf23dab3664b690dccfc9b3fb6784bfd872422a1f63eacdb1f897f04",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "Issue #3",
+      "starts": 2,
+      "resultsObtained": 2,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 511,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A31",
+          "sourceArtifact": ".runtime/issue3-review/round1.json",
+          "sourceSha256": "c10151f48c56a7ed4024b06ec90a492d57069c7cdf481bd97f8f8ac543d18f82",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A32",
+          "sourceArtifact": ".runtime/issue3-review/round2.json",
+          "sourceSha256": "ce694c7155b4b9185d050faf2ab90fb27302e82d7af9abb4aa5a0c0d00178774",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "Issue #4",
+      "starts": 2,
+      "resultsObtained": 2,
+      "resultsMissing": 0,
+      "source": {
+        "file": "STATUS.md",
+        "line": 528,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A33",
+          "sourceArtifact": ".runtime/issue4-review/final.json",
+          "sourceSha256": "dcb8e7464ba5cd076241df704942f3a4ef2e3edc3912811f2465643243202358",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A34",
+          "sourceArtifact": ".runtime/issue4-review/round1.json",
+          "sourceSha256": "1f8db500122a2936f8dfba8fba1524d4b3ff698014384153927bd2c99943ca9b",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "Issue #5",
+      "starts": 4,
+      "resultsObtained": 4,
+      "resultsMissing": 0,
+      "source": {
+        "file": "docs/AUDIT_20261122_ISSUE5.md",
+        "line": 12,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A35",
+          "sourceArtifact": ".runtime/issue5-review/code-recheck.json",
+          "sourceSha256": "3a2122e06f955f053f12470f62519644a9e0decb1f562d0da779ec55d42cc0d1",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A36",
+          "sourceArtifact": ".runtime/issue5-review/delta.json",
+          "sourceSha256": "27b162a9f974253899ba8e7e495e697e05500e1f5e602b27b044f62ee1c17a59",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A37",
+          "sourceArtifact": ".runtime/issue5-review/final.json",
+          "sourceSha256": "d4f6d2639b8449db227fe6f5d65e94d77413f2b5118042684c8e68da8ce268eb",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A38",
+          "sourceArtifact": ".runtime/issue5-review/round1.json",
+          "sourceSha256": "2ee5b84bb9c1e9aa7802211311c812ce01d5375015104e0b407d8779de9cba3b",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "Issue #6",
+      "starts": 2,
+      "resultsObtained": 2,
+      "resultsMissing": 0,
+      "source": {
+        "file": "docs/AUDIT_20261122_ISSUE6.md",
+        "line": 9,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A39",
+          "sourceArtifact": ".runtime/issue6-review/round1.json",
+          "sourceSha256": "810b4bb4c6ab20951fed302fac1d41f969839ea6d86a0d489601b11ac0671fec",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A40",
+          "sourceArtifact": ".runtime/issue6-review/round2.json",
+          "sourceSha256": "7f7909ba060545bdd1098070b07961a780a7ab22b34bca036572d0e27b367ceb",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "Issue #7：実応答ブラインド品質QA",
+      "starts": 1,
+      "resultsObtained": 1,
+      "resultsMissing": 0,
+      "source": {
+        "file": "docs/GEMMA_DUAL_AI_QA_20261122.md",
+        "line": 61,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A41",
+          "sourceArtifact": ".runtime/issue7/claude-stdout.json",
+          "sourceSha256": "b780e0e0f92127e969868a9fa08e0106e5c5e0099740fcc70d2e390bd6fa8fbf",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    },
+    {
+      "phase": "Issue #8：コードQA",
+      "starts": 2,
+      "resultsObtained": 2,
+      "resultsMissing": 0,
+      "source": {
+        "file": "docs/AUDIT_20261122_ISSUE8.md",
+        "line": 28,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      },
+      "records": [
+        {
+          "id": "A42",
+          "sourceArtifact": ".runtime/issue8/claude-stdout.json",
+          "sourceSha256": "0c41ced8778d23b511fc051fa268dabe686e84cd1fc6ce3bcce7f71594381513",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        },
+        {
+          "id": "A43",
+          "sourceArtifact": ".runtime/issue8-final/claude-stdout.json",
+          "sourceSha256": "26fce4b1d100d8238dbf145e4a8622661d347085e3d83226c803a14a2bd48b50",
+          "model": [
+            "claude-opus-5-5"
+          ],
+          "isError": false,
+          "resultObtained": true
+        }
+      ]
+    }
+  ],
+  "humanGate": [
+    {
+      "id": "H1",
+      "date": "2026-11-17",
+      "phase": "役割切替",
+      "change": "旧セッションの境界修正",
+      "status": "該当修正実装済み（正式受入完了数ではない）",
+      "source": {
+        "file": "STATUS.md",
+        "line": 192,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "H2",
+      "date": "2026-11-17",
+      "phase": "教材マスター表示",
+      "change": "講座・教材・進捗表示の調整",
+      "status": "該当修正実装済み（正式受入完了数ではない）",
+      "source": {
+        "file": "STATUS.md",
+        "line": 193,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "H3",
+      "date": "2026-11-17",
+      "phase": "次回開始位置登録",
+      "change": "指定位置の保存",
+      "status": "該当修正実装済み（正式受入完了数ではない）",
+      "source": {
+        "file": "STATUS.md",
+        "line": 194,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "H4",
+      "date": "2026-11-17",
+      "phase": "Windows起動",
+      "change": "起動・更新と変更保護",
+      "status": "該当修正実装済み（正式受入完了数ではない）",
+      "source": {
+        "file": "STATUS.md",
+        "line": 195,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "H5",
+      "date": "2026-11-17",
+      "phase": "次回位置の連動選択",
+      "change": "5項目の連動選択",
+      "status": "該当修正実装済み（正式受入完了数ではない）",
+      "source": {
+        "file": "STATUS.md",
+        "line": 197,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "H6",
+      "date": "2026-11-22",
+      "phase": "Issue #1",
+      "change": "AI練習をタイピング前の最大10成功往復に変更",
+      "status": "該当修正実装済み（正式受入完了数ではない）",
+      "source": {
+        "file": "STATUS.md",
+        "line": 478,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "H7",
+      "date": "2026-11-22",
+      "phase": "Issue #2",
+      "change": "講師と生徒のセッションを分離",
+      "status": "該当修正実装済み（正式受入完了数ではない）",
+      "source": {
+        "file": "STATUS.md",
+        "line": 482,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "H8",
+      "date": "2026-11-22",
+      "phase": "Issue #3",
+      "change": "接続と有効題材の診断・設定",
+      "status": "該当修正実装済み（正式受入完了数ではない）",
+      "source": {
+        "file": "STATUS.md",
+        "line": 511,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "H9",
+      "date": "2026-11-22",
+      "phase": "Issue #4",
+      "change": "選択を減らした自由チャットUI",
+      "status": "該当修正実装済み（正式受入完了数ではない）",
+      "source": {
+        "file": "STATUS.md",
+        "line": 521,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "H10",
+      "date": "2026-11-22",
+      "phase": "Issue #5",
+      "change": "履歴・再送を修正、実AI品質は未合格",
+      "status": "修正実装あり・実品質Human Gate未合格",
+      "source": {
+        "file": "STATUS.md",
+        "line": 539,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    }
+  ],
+  "liveCalls": [
+    {
+      "id": "L1",
+      "phase": "Issue #3 Mistral題材動作",
+      "requestsLowerBound": 10,
+      "basis": "成功10回答から送信下限10",
+      "source": {
+        "file": "docs/AUDIT_20261122_ISSUE3.md",
+        "line": 11,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "L2",
+      "phase": "Issue #4 Mistral 2題材",
+      "requestsLowerBound": 20,
+      "basis": "成功10回答×2題材から送信下限20",
+      "source": {
+        "file": "docs/AUDIT_20261122_ISSUE4.md",
+        "line": 7,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "L3",
+      "phase": "Issue #5 Mistral最終4会話",
+      "requestsLowerBound": 40,
+      "basis": "成功40回答から送信下限40（失敗再送分は未加算）",
+      "source": {
+        "file": "docs/AI_QUALITY_20261122_ISSUE5.md",
+        "line": 17,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "L4",
+      "phase": "Issue #5 Mistral安全境界",
+      "requestsLowerBound": 20,
+      "basis": "2題材×10入力、記録20件のsuccessも追加照合",
+      "source": {
+        "file": "docs/AI_QUALITY_20261122_ISSUE5.md",
+        "line": 21,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "L5",
+      "phase": "Issue #5 Gemma比較",
+      "requestsLowerBound": 40,
+      "basis": "送信40回。timeout等を含む承認枠",
+      "source": {
+        "file": "docs/AI_QUALITY_20261122_ISSUE5.md",
+        "line": 25,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "L6",
+      "phase": "Issue #6後続 Gemma比較",
+      "requestsLowerBound": 20,
+      "basis": "送信20回＝19成功＋1timeout",
+      "source": {
+        "file": "docs/GEMMA_LIVE_20_20261122.md",
+        "line": 16,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    },
+    {
+      "id": "L7",
+      "phase": "Issue #7 Gemma比較",
+      "requestsLowerBound": 20,
+      "basis": "送信20回＝18成功＋2timeout",
+      "source": {
+        "file": "docs/GEMMA_DUAL_AI_QA_20261122.md",
+        "line": 37,
+        "commit": "47d820885f6f5fd28a225fbf8829a231550d2044"
+      }
+    }
+  ]
+}

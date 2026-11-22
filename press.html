@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>岩手・北上の個人パソコン教室、異種AIを組み合わせた開発・独立QAの実証記録を公開｜こむぎパソコン教室</title><meta name="description" content="こむぎパソコン教室が異種AIによる開発・独立QAの実証記録を公開。2026年11月22日発表。報道用原稿と集計根拠を掲載。"><meta name="theme-color" content="#102b46"><link rel="canonical" href="https://suguruwada0612-ship-it.github.io/dual-ai-qa-report/press.html"><meta property="og:type" content="article"><meta property="og:locale" content="ja_JP"><meta property="og:title" content="岩手・北上の個人パソコン教室、異種AIを組み合わせた開発・独立QAの実証記録を公開"><meta property="og:description" content="こむぎパソコン教室が異種AIによる開発・独立QAの実証記録を公開。2026年11月22日発表。報道用原稿と集計根拠を掲載。"><meta property="og:url" content="https://suguruwada0612-ship-it.github.io/dual-ai-qa-report/press.html"><meta property="og:site_name" content="こむぎパソコン教室"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css"></head>
+<body><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><div class="container"><a class="brand" href="index.html">こむぎパソコン教室<small>技術実証レポート · 岩手県北上市</small></a><nav class="nav" aria-label="メインナビゲーション"><a href="index.html">レポート</a><a href="evidence.html">根拠・集計</a><a href="press.html" aria-current="page">プレスリリース</a></nav></div></header>
+<main id="main" class="container"><article class="article prose"><p class="eyebrow">PRESS RELEASE</p><h1>岩手・北上の個人パソコン教室、異種AIを組み合わせた開発・独立QAの実証記録を公開</h1>
+<p>発表日：2026年11月22日｜発信：こむぎパソコン教室</p>
+<p>こむぎパソコン教室（岩手県北上市）は、教室運営・学習支援アプリ「KOMUGI Classroom DX」の開発で、CodexとClaude Codeを組み合わせた「Dual-AI QA」の技術実証レポートを公開しました。AIによる実装、別のAIによる確認、修正、再監査、人間による試用を記録し、成果と未確認の課題を分けて紹介しています。QAとは、仕様どおりに動くか、見落としがないかを確認する活動です。</p>
+<h2 id="section-1">背景と役割分担</h2>
+<p>講師1人で運営する教室では、紙の進捗記録、教材ファイルの準備、授業後の片付けが負担となっていました。開発の目的は、生徒が次に学ぶ内容を分かりやすくし、教室の運営を改善することです。一方、AIが作った機能が動くだけでは、授業で使いやすいか、AIの文章が適切かは判断できません。</p>
+<p>そこでCodexが実装・自動テスト・修正を担い、Claude Codeが読み取り専用で仕様やコードを確認する工程を設けました。人間は要件を決め、実機での操作や教育上の妥当性を確認し、採用を判断します。この人間の確認を「Human Gate」と呼んでいます。「独立QA」は別のAI・別工程による確認を指し、外部機関の認証ではありません。</p>
+<h2 id="section-2">記録で確認できた結果</h2>
+<p>2026年11月22日を基準に、主要自動テストは37回分の記録で延べ2,970件、最新のテストケース数は200件でした。延べ件数は同じテストの繰り返しを含み、2,970種類という意味ではありません。独立QAは少なくとも43回起動し、41回で所見を取得、2回は結果未取得です。既存累計の40回・38回・2回に、今回の資料照合で過去の3回を追加確認しました。Human Gate起点の修正は10対応ですが、すべての課題の解消や受入合格を意味しません。</p>
+<p>代表例として、ログイン期限切れ後に保存できなかったことを知らせる処理、日本語タイピングの途中終了時の採点、授業を止めない起動処理を改善しました。修正前後のテストや再監査の記録を公開用に整理しています。</p>
+<p>実AIの文章を評価した別の試験では、架空の題材で20回通信し、18回成功・2回タイムアウトを記録しました。モデル名と開発担当の評価を伏せた確認では、別案の本文不足、本人が指定していない約束、待ち時間の負担が残りました。後続のコード修正と再監査は完了しましたが、修正後の実応答品質は未検証で、候補モデルGemmaの正式採用は保留です。</p>
+<h2 id="section-3">この公開の意義</h2>
+<p>本公開は、小規模な現場がAIの指摘をどう確かめ、直し、採用判断につなげたかを共有するものです。業務時間の削減や教育効果はまだ定量測定していません。レポートには集計の数え方、監査抜粋、参照コミット、残課題を掲載し、技術者が根拠を追えるようにしました。原ログ、認証情報、受講者情報は公開していません。</p>
+<p>技術実証レポート：<a href="https://suguruwada0612-ship-it.github.io/dual-ai-qa-report/">https://suguruwada0612-ship-it.github.io/dual-ai-qa-report/</a></p>
+<h2 id="section-4">事業者概要・お問い合わせ</h2>
+<p>こむぎパソコン教室｜パソコンの基礎、Office、資格対策などの個別学習を提供。所在地：岩手県北上市中野町2丁目22－20 クオレアビル2F。お問い合わせ：0197-62-6113／<a href="mailto:info@komugi-pc-school.tank.jp">info@komugi-pc-school.tank.jp</a>。<a href="https://komugi-pc-school.tank.jp/">公式サイト</a>の公開窓口を2026年11月22日に確認しました。</p><div class="actions"><a class="button" href="index.html">技術実証レポートを読む</a><a class="button secondary" href="press.md" download>Markdown原稿を保存</a></div><p class="note">集計方法と補正理由は<a href="evidence.html">公開根拠資料</a>をご覧ください。</p></article></main>
+<footer class="site-footer"><div class="container"><div><p><strong>こむぎパソコン教室</strong></p><p>岩手県北上市 · 集計基準日 2026年11月22日（JST）</p><p>コードの検証と、実際のAI応答品質の評価を分けて公開しています。</p></div><nav aria-label="フッターナビゲーション"><a href="https://github.com/suguruwada0612-ship-it/dual-ai-qa-report">GitHub</a><a href="UPDATE.md">更新手順</a><a href="https://komugi-pc-school.tank.jp/">公式サイト・お問い合わせ</a></nav></div></footer></body></html>
